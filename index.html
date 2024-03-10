@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fofa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            animation: heartbeat 1s infinite alternate;
+            /* Adicionando variáveis para os temas claro e escuro */
+            --cor-fundo-claro: #f5f5f5;
+            --cor-texto-claro: #333;
+            --cor-fundo-escuro: #333;
+            --cor-texto-escuro: #f5f5f5;
+            background-image: url(img/1D16F1A9-7698-49DC-8226-2805E7A74FF3.JPG);
+    background-size: contain; /* Ajuste para que a imagem cubra a tela mantendo sua proporção original */
+    background-repeat: no-repeat; /* Evitar a repetição da imagem */
+    background-position: center; /* Centralizar a imagem na tela */
+    color: var(--cor-texto-escuro);
+        }
+        .container {
+            margin-top: 100px;
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 32px;
+            text-shadow: 2px 2px #ccc;
+            animation: bounce 1s infinite alternate;
+        }
+        p {
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 1.5;
+            animation: slideIn 1s ease-in-out;
+        }
+        img {
+            width: 200px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #d44179;
+        }
+        /* Adicionando estilo para o tema escuro */
+        .dark-theme {
+    --cor-fundo-claro: #333;
+    --cor-texto-claro: #f5f5f5;
+    background-image: url(img/FFDF3600-2C63-4587-B252-FD3B4A542C63.JPG);
+    background-size: contain; /* Ajuste para que a imagem cubra a tela mantendo sua proporção original */
+    background-repeat: no-repeat; /* Evitar a repetição da imagem */
+    background-position: center; /* Centralizar a imagem na tela */
+    color: var(--cor-texto-escuro);
+}
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MINHA MISS VRUM VRUM</h1>
+        <p>Minha lindaaa</p>
+        <p>Isto e pouco mas fiz bem atoa hehe</p>
+        <p>Nunca mais e dia 19 , tenho cenas para te dar</p>
+        <img src="img/10220088-grande-coracao-rosa-sobre-fundo-branco-renderizacao-3d-foto.jpg" alt="Imagem Fofa">
+        <!-- Botões -->
+        <div>
+            <!-- Botão para alternar entre temas claro e escuro -->
+            <button onclick="alternarTema()">Trocar Tema</button>
+            <!-- Botão para reproduzir/pausar música de fundo -->
+            <button onclick="alternarMusica()">Reproduzir/Pausar Música</button>
+            <!-- Botão de compartilhamento -->
+        
+        </div>
+        <!-- Música de fundo -->
+        <audio id="musica" src="msc/Mac Miller - Congratulations (feat. Bilal).mp3" loop></audio>
+    </div>
+
+    <script>
+        // Função para alternar entre temas claro e escuro
+        function alternarTema() {
+            document.body.classList.toggle('dark-theme');
+        }
+
+        // Contador de visitas
+        let contador = localStorage.getItem('contador') || 0;
+        contador++;
+        localStorage.setItem('contador', contador);
+        document.getElementById('contadorVisitas').innerText = contador;
+
+        // Função para reproduzir/pausar música de fundo
+        function alternarMusica() {
+            var musica = document.getElementById('musica');
+            if (musica.paused) {
+                musica.play();
+            } else {
+                musica.pause();
+            }
+        }
+
+        // Função para ocultar mensagem
+        function ocultarMensagem() {
+            var mensagem = document.querySelectorAll('p');
+            mensagem.forEach(function(p) {
+                p.style.display = 'none';
+                p.style.position = 'absolute';
+                p.style.left = Math.random() * 90 + 'vw';
+                p.style.top = Math.random() * 90 + 'vh';
+            });
+            document.getElementById('ocultarBotao').style.display = 'none';
+            document.getElementById('mostrarBotao').style.display = 'block';
+        }
+
+        // Função para mostrar mensagem
+        function mostrarMensagem() {
+            var mensagem = document.querySelectorAll('p');
+            mensagem.forEach(function(p) {
+                p.style.display = 'block';
+                p.style.position = 'static';
+            });
+            document.getElementById('ocultarBotao').style.display = 'block';
+            document.getElementById('mostrarBotao').style.display = 'none';
+        }
+
+
+    </script>
+</body>
+</html>
